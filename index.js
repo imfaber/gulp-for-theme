@@ -13,6 +13,7 @@ const path       = require('path'),
 // Globally expose config objects.
 global.TASK_CONFIG = require('./config.js');
 global.PATH_CONFIG = {
+  nodeModules: path.resolve(process.cwd(), './node_modules'),
   theme:  path.dirname(__dirname),
   public: path.resolve(path.dirname(__dirname), TASK_CONFIG.public)
 };

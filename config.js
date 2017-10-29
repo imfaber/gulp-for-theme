@@ -32,15 +32,16 @@ module.exports = {
   },
 
   /**
-   * The vendor task copies 
-   * Link node modules to the
+   * The vendor task makes node_modules available to your public directory.
+   * Useful if you need, for instance, to reference Javascript or CSS files
+   * in your templates.
    */
   vendor: {
-    server: {
-      // should match `dest` in
-      // path-config.json
-      baseDir: 'public'
-    }
+    enable:      true,
+    dest:        './vendor',
+    nodeModules: [
+      // 'bootstrap-sass',
+    ]
   },
 
   browserSync: {
