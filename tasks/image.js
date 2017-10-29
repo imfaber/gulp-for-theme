@@ -1,13 +1,12 @@
-if (!TASK_CONFIG.images || !TASK_CONFIG.images.enable) return;
+if (!TASK_CONFIG.image || !TASK_CONFIG.image.enable) return;
 
 const browserSync = require('browser-sync'),
       imagemin    = require('gulp-imagemin'),
       gulp        = require('gulp'),
       path        = require('path');
 
-const imagesTask = function () {
-
-  let srcPath = path.resolve(PATH_CONFIG.theme, TASK_CONFIG.images.src);
+const imageTask = function () {
+  let srcPath = path.resolve(PATH_CONFIG.theme, TASK_CONFIG.image.src);
 
   return gulp.src(path.resolve(srcPath, '**/*'))
     .pipe(imagemin([
@@ -21,8 +20,9 @@ const imagesTask = function () {
         ]
       })
     ]))
-    .pipe(gulp.dest(srcPath));
+    .pipe(gulp.dest(srcPath))
+    .pipe(browserSync.stream());
 };
 
-gulp.task('images', imagesTask);
-module.exports = imagesTask;
+gulp.task('image', imageTask);
+module.exports = imageTask;

@@ -2,14 +2,14 @@ module.exports = {
 
   public: './public',
 
-  images: {
+  image: {
     enable: true,
     src:    './images'
   },
 
   sass: {
     enable: true,
-    src:    './sass',
+    src:    './scss',
     dest:   './css'
   },
 
@@ -40,15 +40,16 @@ module.exports = {
     enable:      true,
     dest:        './vendor',
     nodeModules: [
-      // 'bootstrap-sass',
+      'bootstrap-sass',
     ]
   },
 
   browserSync: {
-    server: {
-      // should match `dest` in
-      // path-config.json
-      baseDir: 'public'
+    enable: false,
+    config: {
+      open: false,
+      proxy: "local.dev",
+      reloadDebounce: 1000
     }
   }
 

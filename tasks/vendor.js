@@ -18,7 +18,7 @@ const vendorTask = function () {
 
   return gulp.src('*.js', {read: false})
     .pipe(shell([
-      `rm -rf ${vendorPath}`,
+      `'rm' -rf ${vendorPath}`,
       `mkdir ${vendorPath}`
     ].concat(commands)));
 };
