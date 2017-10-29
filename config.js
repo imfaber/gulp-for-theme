@@ -1,5 +1,6 @@
 module.exports = {
-  dest: './build',
+
+  public: './public',
 
   images: {
     enable: true,
@@ -27,6 +28,18 @@ module.exports = {
       output:  './site-bundle.js', // relative to javascripts.dest
       prepend: '(function($){"use strict";',
       append:  '})(jQuery);'
+    }
+  },
+
+  /**
+   * The vendor task copies 
+   * Link node modules to the
+   */
+  vendor: {
+    server: {
+      // should match `dest` in
+      // path-config.json
+      baseDir: 'public'
     }
   },
 
