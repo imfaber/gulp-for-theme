@@ -11,6 +11,11 @@ const browserSync  = require('browser-sync'),
       gulp         = require('gulp'),
       path         = require('path');
 
+/**
+ * Sass task.
+ *
+ * Compile sass, create sourcemaps, clean css etc..
+ */
 const sassTask = function () {
   return gulp.src(path.resolve(PATH_CONFIG.theme, TASK_CONFIG.sass.src) + '/*.scss')
     .pipe(plumber())

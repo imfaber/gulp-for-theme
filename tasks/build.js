@@ -3,12 +3,12 @@ const gulp         = require('gulp'),
       gulpSequence = require('gulp-sequence');
 
 /**
- * Default task.
+ * Build task.
  */
-const defaultTask = function () {
+const buildTask = function () {
 
   const defaultTasks = [],
-        tasks        = ['browserSync', 'vendor', 'image', 'sass', 'javascript'];
+        tasks        = ['vendor', 'image', 'sass', 'javascript'];
 
   tasks.forEach((task) => {
     if (taskHelper.isTaskEnabled(task)) {
@@ -16,10 +16,10 @@ const defaultTask = function () {
     }
   });
 
-  gulpSequence('clean', defaultTasks, 'watch')((err) => {
+  gulpSequence('clean', defaultTasks)((err) => {
     if (err) console.log(err)
   });
 };
 
-gulp.task('default', defaultTask);
-module.exports = defaultTask;
+gulp.task('default', buildTask);
+module.exports = buildTask;

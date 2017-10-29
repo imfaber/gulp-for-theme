@@ -1,10 +1,11 @@
 /**
- gulpfile.js
- ===========
- Rather than manage one giant configuration file responsible
- for creating multiple tasks, each task has been broken out into
- its own file in gulpfile.js/tasks. Any files in that directory get
- automatically required below.
+ *  gulpfile.js
+ *  ===========
+ *
+ *  Rather than manage one giant configuration file responsible
+ *  for creating multiple tasks, each task has been broken out into
+ *  its own file in gulpfile/tasks. Any files in that directory get
+ *  automatically required below.
  */
 
 const path       = require('path'),
@@ -18,6 +19,6 @@ global.PATH_CONFIG = {
   public: path.resolve(path.dirname(__dirname), TASK_CONFIG.public)
 };
 
-// Require all tasks in gulpfile.js/tasks, including subfolders
+// Require all tasks in gulpfile/tasks, including subfolders
 requireDir('./tasks', {recurse: true});
 

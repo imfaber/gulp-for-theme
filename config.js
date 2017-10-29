@@ -2,30 +2,45 @@ module.exports = {
 
   public: './public',
 
+  /**
+   * Image task.
+   *
+   * Optimise images.
+   */
   image: {
     enable: true,
     src:    './images'
   },
 
+  /**
+   * Sass task.
+   *
+   * Compile sass, create sourcemaps, clean css etc..
+   */
   sass: {
     enable: true,
     src:    './scss',
     dest:   './css'
   },
 
+  /**
+   * Javascript task.
+   *
+   * Validate, compile, create sourcemaps, uglify etc..
+   */
   javascript: {
-    enable: true,
-    src:    './js',
-    dest:   './js',
+    enable:      true,
+    src:         './js',
+    dest:        './js',
     bundle: {
-      entry:   './**/*.js', // relative to javascript.src
+      files:   './**/*.js', // relative to javascript.src
       // If order is important use the following instead
-      // entry: [
+      // files: [
       //   './file3.js',
       //   './file1.js',
       //   './file2.js'
       // ],
-      output:  './site-bundle.js', // relative to javascripts.dest
+      output:  'site-bundle.js',
       prepend: '(function($){"use strict";',
       append:  '})(jQuery);'
     }
@@ -44,11 +59,14 @@ module.exports = {
     ]
   },
 
+  /**
+   * Browser sync.
+   */
   browserSync: {
     enable: false,
     config: {
-      open: false,
-      proxy: "local.dev",
+      open:           false,
+      proxy:          "local.dev",
       reloadDebounce: 1000
     }
   }

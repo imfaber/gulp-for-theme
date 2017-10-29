@@ -2,6 +2,9 @@ const gulp         = require('gulp'),
       taskHelper   = require('../lib/taskHelper.js'),
       path         = require('path');
 
+/**
+ * Watch task.
+ */
 const watchTask = function () {
 
   if (taskHelper.isTaskEnabled('image')) {

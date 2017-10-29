@@ -5,6 +5,11 @@ const browserSync = require('browser-sync'),
       gulp        = require('gulp'),
       path        = require('path');
 
+/**
+ * Image task.
+ *
+ * Optimize images.
+ */
 const imageTask = function () {
   let srcPath = path.resolve(PATH_CONFIG.theme, TASK_CONFIG.image.src);
 
