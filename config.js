@@ -65,9 +65,15 @@ module.exports = {
   browserSync: {
     enable: false,
     config: {
-      open:           false,
-      proxy:          "local.dev",
-      reloadDebounce: 1000
+      files: ['**/*.css', '**/*.js', '!**.map'],
+      notify: false,
+      open: false,
+      port: 3000,
+      proxy: 'local.dev:8000',
+      host: '172.21.0.7',
+      watchOptions: {
+        debounceDelay: 2000 
+      }
     }
   }
 

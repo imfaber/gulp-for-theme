@@ -35,9 +35,12 @@ const javascriptTask = function () {
     .pipe(inject.append(TASK_CONFIG.javascript.bundle.append))
     .pipe(gulp.dest(dest))
     .pipe(rename(bundleOutput + '.min.js'))
-    .pipe(uglify().on('error', onError))
+    .pipe(uglify())
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(dest));
+    .pipe(gulp.dest(dest))
+    .on('error', (err) => {
+      console.error('Error in javascript task', err.toString());
+    });
 };
 
 gulp.task('javascript', javascriptTask);

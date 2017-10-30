@@ -8,7 +8,8 @@ const gulp  = require('gulp'),
 const cleanTask = function () {
   return gulp.src('*.js', {read: false})
     .pipe(shell([
-      `'rm' -rf ${PATH_CONFIG.public}`
+      `'rm' -rf ${PATH_CONFIG.public}`,
+      `mkdir ${PATH_CONFIG.public}`
     ]));
 };
 

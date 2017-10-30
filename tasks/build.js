@@ -7,19 +7,30 @@ const gulp         = require('gulp'),
  */
 const buildTask = function () {
 
-  const defaultTasks = [],
-        tasks        = ['vendor', 'image', 'sass', 'javascript'];
+  const preBuildTasks = [],
+        defaultTasks  = [];
 
-  tasks.forEach((task) => {
+  // First check pre build tasks such as vendor.
+  if (taskHelper.isTaskEnabled('vendor')) {
+    preBuildTasks.push('vendor');
+  }
+
+  // Then the default tasks
+  ['image', 'sass', 'javascript'].forEach((task) => {
     if (taskHelper.isTaskEnabled(task)) {
       defaultTasks.push(task);
     }
   });
 
-  gulpSequence('clean', defaultTasks)((err) => {
-    if (err) console.log(err)
+  gulpSequence('clean', preBuildTasks)((err) => {
+    if (err) console.log(err);
+    else {
+      gulpSequence(defaultTasks)((err) => {
+        if (err) console.log(err)
+      });
+    }
   });
 };
 
-gulp.task('default', buildTask);
+gulp.task('build', buildTask);
 module.exports = buildTask;

@@ -11,12 +11,11 @@ const gulp  = require('gulp'),
  */
 const vendorTask = function () {
 
-  const vendorPath  = path.resolve(PATH_CONFIG.public, TASK_CONFIG.vendor.dest),
-        nodeModules = TASK_CONFIG.vendor.nodeModules,
-        commands    = [];
+  const vendorPath = path.resolve(PATH_CONFIG.public, TASK_CONFIG.vendor.dest),
+        commands   = [];
 
   TASK_CONFIG.vendor.nodeModules.forEach((item) => {
-    let source = path.resolve(PATH_CONFIG.nodeModules, item),
+    let source      = path.resolve(PATH_CONFIG.nodeModules, item),
         destination = path.resolve(vendorPath, item);
     commands.push(`ln -s ${source} ${destination}`);
   });
