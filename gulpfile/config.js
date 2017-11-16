@@ -1,6 +1,10 @@
 module.exports = {
 
-  public: './public',
+  /**
+   * The public directory is where all your theme assets will
+   * be placed.
+   */
+  public: './public', // Relative to theme directory.
 
   /**
    * Image task.
@@ -9,7 +13,8 @@ module.exports = {
    */
   image: {
     enable: true,
-    src:    './images'
+    src:    './images', // Relative to theme directory.
+    dest:   './images'  // Relative to public directory.
   },
 
   /**
@@ -19,8 +24,8 @@ module.exports = {
    */
   sass: {
     enable: true,
-    src:    './scss',
-    dest:   './css'
+    src:    './scss', // Relative to theme directory.
+    dest:   './css'   // Relative to public directory.
   },
 
   /**
@@ -29,11 +34,11 @@ module.exports = {
    * Validate, compile, create sourcemaps, uglify etc..
    */
   javascript: {
-    enable:      true,
-    src:         './js',
-    dest:        './js',
+    enable: true,
+    src:    './js', // Relative to theme directory.
+    dest:   './js', // Relative to public directory.
     bundle: {
-      files:   './**/*.js', // relative to javascript.src
+      files:   './*.js', // relative to javascript.src
       // If order is important use the following instead
       // files: [
       //   './file3.js',
@@ -41,9 +46,18 @@ module.exports = {
       //   './file2.js'
       // ],
       output:  'site-bundle.js',
-      prepend: '(function($){"use strict";',
-      append:  '})(jQuery);'
+      prepend: '(function ($, DrupalModernizr, Drupal, drupalSettings) {\nDrupal.atollo = Drupal.atollo || {};\n',
+      append:  '})(jQuery, Modernizr, Drupal, drupalSettings);'
     }
+  },
+
+  /**
+   * Copy fonts to public folder.
+   */
+  font: {
+    enable: true,
+    src:    './fonts', // Relative to theme directory.
+    dest:   './fonts', // Relative to public directory.
   },
 
   /**
@@ -56,6 +70,8 @@ module.exports = {
     dest:        './vendor',
     nodeModules: [
       'bootstrap-sass',
+      'bourbon',
+      'hamburgers'
     ]
   },
 
@@ -63,16 +79,12 @@ module.exports = {
    * Browser sync.
    */
   browserSync: {
-    enable: false,
+    enable: true,
     config: {
-      files: ['**/*.css', '**/*.js', '!**.map'],
-      notify: false,
-      open: false,
-      port: 3000,
-      proxy: 'local.dev:8000',
-      host: '172.21.0.7',
+      open:         false,
+      proxy:        'http://atollo.docker.localhost:8000',
       watchOptions: {
-        debounceDelay: 2000 
+        debounceDelay: 2000
       }
     }
   }

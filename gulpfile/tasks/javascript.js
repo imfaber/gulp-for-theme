@@ -22,9 +22,11 @@ const javascriptTask = function () {
         dest         = path.resolve(PATH_CONFIG.public, TASK_CONFIG.javascript.dest),
         bundleOutput = TASK_CONFIG.javascript.bundle.output.replace('.js', '');
 
-  return gulp.src(path.resolve(src + TASK_CONFIG.javascript.bundle.files))
+  return gulp.src(path.resolve(src, TASK_CONFIG.javascript.bundle.files))
     .pipe(plumber())
-    .pipe(jshint())
+    .pipe(jshint({
+      'esversion': 6
+    }))
     .pipe(jshint.reporter('default'))
     .pipe(sourcemaps.init())
     .pipe(babel({
@@ -40,7 +42,8 @@ const javascriptTask = function () {
     .pipe(gulp.dest(dest))
     .on('error', (err) => {
       console.error('Error in javascript task', err.toString());
-    });
+    })
+    .pipe(browserSync.stream());
 };
 
 gulp.task('javascript', javascriptTask);

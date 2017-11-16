@@ -16,7 +16,7 @@ const defaultTask = function () {
   }
 
   // Then the default tasks
-  ['browserSync', 'image', 'sass', 'javascript'].forEach((task) => {
+  ['browserSync', 'image', 'font', 'sass', 'javascript'].forEach((task) => {
     if (taskHelper.isTaskEnabled(task)) {
       defaultTasks.push(task);
     }

@@ -1,23 +1,28 @@
-const gulp         = require('gulp'),
-      taskHelper   = require('../lib/taskHelper.js'),
-      path         = require('path');
+const gulp       = require('gulp'),
+      taskHelper = require('../lib/taskHelper.js'),
+      watch      = require('gulp-watch'),
+      path       = require('path');
 
 /**
  * Watch task.
  */
 const watchTask = function () {
 
-  if (taskHelper.isTaskEnabled('image')) {
-    gulp.watch(path.resolve(PATH_CONFIG.theme, TASK_CONFIG.image.src) + '/**/*', {interval: 1}, ['image']);
-  }
+  ['image', 'sass', 'javascript', 'font'].forEach((task) => {
+    if (taskHelper.isTaskEnabled(task)) {
+      watch(
+        path.resolve(PATH_CONFIG.theme, TASK_CONFIG[task].src) + '/**/*',
+        {
+          readDelay: 100
+        },
+        () => {
+          gulp.start(task);
+        }
+      );
 
-  if (taskHelper.isTaskEnabled('sass')) {
-    gulp.watch(path.resolve(PATH_CONFIG.theme, TASK_CONFIG.sass.src) + '/**/*.scss', {interval: 1}, ['sass']);
-  }
-
-  if (taskHelper.isTaskEnabled('javascript')) {
-    gulp.watch(path.resolve(PATH_CONFIG.theme, TASK_CONFIG.javascript.src) + '/**/*.js', {interval: 1}, ['javascript']);
-  }
+      // gulp.watch(path.resolve(PATH_CONFIG.theme, TASK_CONFIG[task].src) + '/**/*', {interval: 1}, [task]);
+    }
+  });
 
 };
 

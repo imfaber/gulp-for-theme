@@ -1,2 +1,2 @@
 const hub = require('gulp-hub');
-hub(['./web/themes/*/gulpfile/index.js']);
+hub(['./PATH/TO/THEME/gulpfile/index.js']);

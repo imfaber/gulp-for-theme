@@ -11,7 +11,8 @@ const browserSync = require('browser-sync'),
  * Optimize images.
  */
 const imageTask = function () {
-  let srcPath = path.resolve(PATH_CONFIG.theme, TASK_CONFIG.image.src);
+  let srcPath  = path.resolve(PATH_CONFIG.theme, TASK_CONFIG.image.src),
+      destPath = path.resolve(PATH_CONFIG.public, TASK_CONFIG.image.dest);
 
   return gulp.src(path.resolve(srcPath, '**/*'))
     .pipe(imagemin([
@@ -25,7 +26,7 @@ const imageTask = function () {
         ]
       })
     ]))
-    .pipe(gulp.dest(srcPath))
+    .pipe(gulp.dest(destPath))
     .pipe(browserSync.stream());
 };
 

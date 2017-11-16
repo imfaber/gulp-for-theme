@@ -19,6 +19,6 @@ global.PATH_CONFIG = {
   public: path.resolve(path.dirname(__dirname), TASK_CONFIG.public)
 };
 
-// Require all tasks in gulpfile/tasks, including subfolders
+// Require all tasks in gulpfile/tasks, including subfolders.
 requireDir('./tasks', {recurse: true});
 

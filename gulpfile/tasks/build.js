@@ -16,7 +16,7 @@ const buildTask = function () {
   }
 
   // Then the default tasks
-  ['image', 'sass', 'javascript'].forEach((task) => {
+  ['image', 'font', 'sass', 'javascript'].forEach((task) => {
     if (taskHelper.isTaskEnabled(task)) {
       defaultTasks.push(task);
     }

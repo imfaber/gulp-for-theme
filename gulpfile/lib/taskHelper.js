@@ -16,7 +16,7 @@ module.exports = {
   },
 
   /**
-   * Check wether the given task is enabled.
+   * Check whether the given task is enabled.
    *
    * @param task
    * @returns {boolean}
