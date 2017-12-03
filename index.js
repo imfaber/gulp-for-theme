@@ -1,9 +1,10 @@
 'use strict';
-const inquirer = require('inquirer');
-const path     = require('path');
+const inquirer          = require('inquirer');
+const inquirerDirectory = require('inquirer-directory');
+const path              = require('path');
 
 
-inquirer.registerPrompt('directory', require('inquirer-directory'));
+inquirer.registerPrompt('directory', inquirerDirectory);
 inquirer.prompt([{
   type:     'directory',
   name:     'themePath',
