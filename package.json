@@ -31,6 +31,7 @@
   "homepage": "https://github.com/imfaber/gulp-for-theme#readme",
   "dependencies": {
     "chalk": "^2.3.0",
+    "co": "^4.6.0",
     "inquirer": "^4.0.1",
     "inquirer-directory": "^2.1.0",
     "lodash": "^4.17.4",
