@@ -1,4 +1,4 @@
-# Gulp for themes
+# Theme gulpifier
 
 This is a gulp system to build theme assets such as images, CSS, Javascript, fonts etc...
 
@@ -10,35 +10,20 @@ This is a gulp system to build theme assets such as images, CSS, Javascript, fon
  - JS validation, concatenation and minification
  - Images and SVG optimisation
  - Browser sync
+ - Compatible with existing gulpfiles and package.json
  
  
 ## Installation
 
-Clone or download the repo to the.<br>
-* `git clone https://github.com/imfaber/gulp-for-theme.git PROJECTNAME`
+Install the module globally.<br>
+* `npm install -g theme-gulpifier`
 
-Open the directory with the project.
+Go to your project root directory.
 * `cd PROJECTNAME`
 
-Run npm install.<br>
-* `npm install`
+Run theme-gulpifier and follow the instructions.<br>
+* `theme-gulpifier`
 
-Open the project in your favorite editor.<br>
-* `atom .`
-
-Open the terminal and run `gulp` so that it starts running before you start making any changes.
-
-* Every time you start working on your project, make sure to run `gulp` so all the files can be watched for changes and the tasks can run against those files.
-
-### Note
-
-In the gulpfile.js, browser sync is calling chrome canary. If you don't have or use chrome canary or chrome at all, you can change it to just google chrome or whatever browser you wish.<br>
-```
-    browserSync.init({
-        server: './',
-        browser: "google chrome canary"
-    });
-```
 
 ## Contribute
 
