@@ -1,5 +1,5 @@
 {
-  "name": "Theme gulpifier",
+  "name": "theme-gulpifier",
   "version": "1.0.1",
   "description": "A Gulp system to build theme assets",
   "main": "lib",
