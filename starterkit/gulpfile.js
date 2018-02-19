@@ -1,4 +1,4 @@
 // ****** Added by theme-gulpifier - START ************
 var themeGulpifierhub = require('gulp-hub');
-themeGulpifierhub(['./build/gulpfile/index.js']);
+themeGulpifierhub(['PATH_TO_THEME/gulpfile/index.js']);
 // ****** Added by theme-gulpifier - END ************
