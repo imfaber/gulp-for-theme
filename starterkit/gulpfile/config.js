@@ -55,7 +55,7 @@ module.exports = {
    * Copy fonts to public folder.
    */
   font: {
-    enable: true,
+    enable: false,
     src:    './fonts', // Relative to theme directory.
     dest:   './fonts', // Relative to public directory.
   },
@@ -66,12 +66,12 @@ module.exports = {
    * in your templates.
    */
   vendor: {
-    enable:      true,
+    enable:      false,
     dest:        './vendor',
     nodeModules: [
-      'bootstrap-sass',
-      'bourbon',
-      'hamburgers'
+      // 'bootstrap-sass',
+      // 'bulma',
+      // 'hamburgers'
     ]
   },
 
@@ -79,10 +79,10 @@ module.exports = {
    * Browser sync.
    */
   browserSync: {
-    enable: true,
+    enable: false,
     config: {
       open:         false,
-      proxy:        'http://atollo.docker.localhost:8000',
+      proxy:        'http://my-site.localhost',
       watchOptions: {
         debounceDelay: 2000
       }
