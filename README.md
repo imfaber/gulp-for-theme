@@ -2,6 +2,8 @@
 
 This is a gulp system to build theme assets such as images, CSS, Javascript, fonts etc...
 
+More info at <https://www.npmjs.com/package/theme-gulpifier>
+
 ## Key features:
  - Watch and build your themes from any directory in your project (no need to cd to the dir containing the gulpfile)
  - Watch and build multiple themes at the same time
